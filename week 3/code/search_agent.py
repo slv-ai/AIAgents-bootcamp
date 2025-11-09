@@ -20,7 +20,7 @@ class NamedCallBack:
         return await self.print_function_calls(ctx,event)
 
 search_instructions = """
-
+make atleast 3 search tool calls to find relevant information 
 """
 def create_Agent():
     tools= search_tools.prepare_search_tools()
