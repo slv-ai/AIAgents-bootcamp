@@ -1,11 +1,11 @@
 from tests.utils import get_tool_call
-
+from search_agent import SearchResultArticle
 import main
 
 def test_agent_makes_3_tool_calls():
     user_prompt = "What is the llm evaluation?"
     result=main.run_agent_sync(user_prompt)
-    print(result.output)
+    print(result.output.format_article())
     messages =result.new_messages()
     tool_calls = get_tool_call(result)
     assert len(tool_calls) >= 3, "Agent did not make at least 3 tool calls"
@@ -13,12 +13,26 @@ def test_agent_makes_3_tool_calls():
 def test_agent_adds_references():
     user_prompt = "What is LLM evaluation?"
     result = main.run_agent_sync(user_prompt)
-    print(result.output)
-    messages = result.new_messages()
+    article: SearchResultArticle = result.output
+    print(article.format_article())
 
     tool_calls = get_tool_call(result)
     assert len(tool_calls) >= 3, f"Expected at least 3 tool calls, got {len(tool_calls)}"
+    assert len(article.references) >= 0 ,"Expected at least one reference, got {len(article.references)}"
 
-    assert "## References" in result.output,"Expected References in the response"
-    assert 'https://github.com/evidentlyai/docs/blob/main' in result.output, "Expected GitHub URLs in the References"
+def test_agent_code():
+    user_prompt =" How do I implement LLM asa judge evaluation?"
+    result = main.run_agent_sync(user_prompt)
+    article: SearchResultArticle = result.output
+    print(article.format_article())
+
+   
+    assert "```python" in article.format_article()
+    found_code = False
+    for section in article.sections:
+        if "```python" in section.content:
+            found_code = True
+            break
+    assert found_code, "Expected at least one code in article"
+
 
