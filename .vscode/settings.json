@@ -1,0 +1,7 @@
+{
+    "python.testing.pytestArgs": [
+        "week 3","-s"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}

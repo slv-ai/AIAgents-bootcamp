@@ -6,12 +6,6 @@ resolution-markers = [
     "python_full_version < '3.14'",
 ]
 
-[manifest]
-members = [
-    "ai-bootcamp",
-    "code",
-]
-
 [[package]]
 name = "ag-ui-protocol"
 version = "0.1.9"
@@ -512,27 +506,6 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/46/61/de6cd827efad202d7057d93e0fed9294b96952e188f7384832791c7b2254/click-8.3.0.tar.gz", hash = "sha256:e7b8232224eba16f4ebe410c25ced9f7875cb5f3263ffc93cc3e8da705e229c4", size = 276943, upload-time = "2025-09-18T17:32:23.696Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/db/d3/9dcc0f5797f070ec8edf30fbadfb200e71d9db6b84d211e3b2085a7589a0/click-8.3.0-py3-none-any.whl", hash = "sha256:9b9f285302c6e3064f4330c05f05b81945b2a39544279343e6e7c5f27a9baddc", size = 107295, upload-time = "2025-09-18T17:32:22.42Z" },
-]
-
-[[package]]
-name = "code"
-version = "0.1.0"
-source = { virtual = "week 3/code" }
-dependencies = [
-    { name = "minsearch" },
-    { name = "openai" },
-    { name = "pydantic-ai" },
-    { name = "python-frontmatter" },
-    { name = "requests" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "minsearch", specifier = ">=0.0.7" },
-    { name = "openai", specifier = ">=2.2.0" },
-    { name = "pydantic-ai", specifier = ">=1.2.1" },
-    { name = "python-frontmatter", specifier = ">=1.1.0" },
-    { name = "requests", specifier = ">=2.32.5" },
 ]
 
 [[package]]
