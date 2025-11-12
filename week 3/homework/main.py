@@ -12,3 +12,6 @@ async def run_agent(user_prompt: str):
 
 result = asyncio.run(run_agent("where do capybaras live"))
 print(result.output)
+
+def run_agent_sync(user_prompt: str):
+    return asyncio.run(run_agent(user_prompt))
