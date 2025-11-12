@@ -27,7 +27,8 @@ search_instructions = """
         "1. First search Wikipedia for relevant articles\n"
         "2. Retrieve and read multiple relevant pages\n"
         "3. Synthesize information from the pages to answer the question\n"
-        "4. Always include references to the Wikipedia pages you used\n"
+        "4. Always include 'References' to the Wikipedia pages you used in the format:
+         ## References (https://en.wikipedia.org/wiki/Capybara) \n"
         "5. Be concise but informative in your answers"
 """
 
